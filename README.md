@@ -1,21 +1,24 @@
 # nodejs-captcha
+
 Creates Captcha in base64 format
 
 # installation
-`npm install nodejs-captcha`
+
+`npm i @bestdon/nodejs-captcha`
 
 # usage
-```javascript 
+
+```javascript
 // import library
-var captcha = require("nodejs-captcha");
+var captcha = require("@bestdon/nodejs-captcha");
 
 // Create new Captcha
 var newCaptcha = captcha();
 
 // Value of the captcha
-var value = newCaptcha.value
+var value = newCaptcha.value;
 
-// Image in base64 
+// Image in base64
 var imagebase64 = newCaptcha.image;
 
 // Width of the image
@@ -23,18 +26,21 @@ var width = newCaptcha.width;
 
 // Height of the image
 var height = newCaptcha.heigth;
-
 ```
-### sample usage with nodejs http
-``` javascript
 
+### sample usage with nodejs http
+
+```javascript
 "use strict";
 var http = require("http");
-var captcha = require("nodejs-captcha");
+var captcha = require("@bestdon/nodejs-captcha");
 var PORT = 8181;
 
 function handleRequest(req, res) {
-  if (req.method === "GET" && (req.url === '/' || req.url.indexOf("index") > -1)){
+  if (
+    req.method === "GET" &&
+    (req.url === "/" || req.url.indexOf("index") > -1)
+  ) {
     let result = captcha();
     let source = result.image;
     res.end(
@@ -51,8 +57,8 @@ function handleRequest(req, res) {
     </html>
     `
     );
-  }else{
-      res.end('');
+  } else {
+    res.end("");
   }
 }
 
@@ -60,7 +66,7 @@ function handleRequest(req, res) {
 var server = http.createServer({}, handleRequest);
 
 //Start server
-server.listen(PORT, function() {
+server.listen(PORT, function () {
   console.log("Server listening on: https://localhost:" + PORT);
 });
 ```

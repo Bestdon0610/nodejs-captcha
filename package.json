@@ -2,7 +2,7 @@
   "name": "@bestdon/nodejs-captcha",
   "description": "Create captcha in nodejs",
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "scripts": {
     "npm-pubish": "npm publish",
@@ -35,5 +35,8 @@
   "keywords": [
     "nodejs",
     "captcha"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
